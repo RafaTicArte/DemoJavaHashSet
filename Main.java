@@ -13,7 +13,8 @@ public class Main {
         System.out.println(DAM1);
 
         System.out.println("Removing student with DNI 20000000B...");
-        DAM1.removeStudent("20000000B");
+        Student studentRemoved = DAM1.removeStudentByDni("20000000B");
         System.out.println(DAM1);
+        System.out.println("Student removed: "+studentRemoved);
     }
 }

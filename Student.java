@@ -66,13 +66,15 @@ public class Student {
 
     @Override
     public boolean equals(Object obj) {
+        boolean isEquals = false;
         if (this == obj){
-            return true;
+            isEquals = true;
         } else if (obj == null || getClass() != obj.getClass()) {
-            return false;
+            isEquals = false;
         } else {
             Student student = (Student) obj;
-            return Objects.equals(dni, student.dni);
+            isEquals = Objects.equals(dni, student.getDni());
         }
+        return isEquals;
     }
 }

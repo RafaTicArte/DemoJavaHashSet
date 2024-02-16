@@ -15,30 +15,27 @@ public class Group {
 
     @Override
     public String toString() {
-        String studentsString = "";
-        Iterator<Student> it = students.iterator();
-        while (it.hasNext()) {
-            studentsString += it.next().toString() + "\n";
+        StringBuilder groupString = new StringBuilder();
+        groupString.append("Group ").append(name).append(":\n");
+        Iterator<Student> iterator = students.iterator();
+        while (iterator.hasNext()) {
+            groupString.append(iterator.next().toString()).append("\n");
         }
-        return "Group" + name + ":\n" + studentsString;
+        return groupString.toString();
     }
 
     public boolean addStudent(Student student) {
-        boolean studentAdded = false;
-        if(!students.contains(student)){
-            studentAdded = this.students.add(student);
-        }
-        return studentAdded;
+        return students.add(student);
     }
 
-    public Student removeStudent(String dni) {
+    public Student removeStudentByDni(String dni) {
         Student studentRemoved = null;
-        Iterator<Student> it = students.iterator();
-        while (it.hasNext()) {
-            Student student = it.next();
+        Iterator<Student> iterator = students.iterator();
+        while (iterator.hasNext()) {
+            Student student = iterator.next();
             if (student.getDni().equals(dni)) {
                 studentRemoved = student;
-                it.remove();
+                iterator.remove();
             }
         }
         return studentRemoved;
